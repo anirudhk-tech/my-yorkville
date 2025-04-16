@@ -1,4 +1,3 @@
-import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,7 +6,8 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "react-native";
-import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
+import { LightTheme, DarkTheme } from "@/constants/Colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -29,9 +29,7 @@ export default function RootLayout() {
   }
 
   return (
-    <PaperProvider
-      theme={colorScheme === "dark" ? MD3DarkTheme : MD3LightTheme}
-    >
+    <PaperProvider theme={colorScheme === "dark" ? DarkTheme : LightTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
