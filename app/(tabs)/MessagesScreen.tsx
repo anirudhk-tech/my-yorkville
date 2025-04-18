@@ -1,3 +1,9 @@
+import { Screen } from "@/components/ui/templates/Screen";
+
 export default function MessagesScreen() {
-  return <></>;
+  return (
+    <Screen>
+      <></>
+    </Screen>
+  );
 }

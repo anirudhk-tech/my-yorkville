@@ -1,3 +1,9 @@
+import { Screen } from "@/components/ui/templates/Screen";
+
 export default function NotFoundScreen() {
-  return <></>;
+  return (
+    <Screen>
+      <></>
+    </Screen>
+  );
 }

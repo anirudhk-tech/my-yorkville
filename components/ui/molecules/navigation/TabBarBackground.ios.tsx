@@ -6,16 +6,12 @@ export default function TabBarBackground() {
   const theme = useTheme();
 
   return (
-    <View style={[styles.shadowWrapper, { shadowColor: theme.colors.shadow }]}>
-      <View
-        style={[
-          styles.innerBackground,
-          { backgroundColor: theme.colors.background },
-        ]}
-      >
-        <BlurView tint="light" intensity={60} style={StyleSheet.absoluteFill} />
-      </View>
-    </View>
+    <View
+      style={[
+        styles.innerBackground,
+        { backgroundColor: theme.colors.surface },
+      ]}
+    />
   );
 }
 

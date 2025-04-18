@@ -1,14 +1,15 @@
 // TabBarBackground.android.tsx
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import { useTheme } from "react-native-paper";
 
 export default function TabBarBackground() {
-  // solid white‑semiopaque background on Android
+  const theme = useTheme();
   return (
     <View
       style={[
         StyleSheet.absoluteFill,
-        { backgroundColor: "rgba(255,255,255,0.9)" },
+        { backgroundColor: theme.colors.surface },
       ]}
     />
   );

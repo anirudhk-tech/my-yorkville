@@ -1,9 +1,9 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Dimensions, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 
-import { IconSymbol } from "@/components/common/IconSymbol";
-import TabBarBackground from "@/components/common/TabBarBackground";
+import { IconSymbol } from "@/components/ui/atoms/IconSymbol";
+import TabBarBackground from "@/components/ui/molecules/navigation/TabBarBackground";
 import { useTheme } from "react-native-paper";
 
 export default function TabLayout() {
@@ -15,45 +15,19 @@ export default function TabLayout() {
         tabBarActiveTintColor: theme.colors.primary,
         headerShown: false,
         tabBarBackground: () => <TabBarBackground />,
-        tabBarStyle: Platform.select({
-          ios: {
-            position: "absolute",
-            bottom: 30,
-            width: "70%",
-            height: 70,
-            borderRadius: 60,
-            backgroundColor: "transparent",
-            marginHorizontal: "15%",
-            shadowColor: "#000",
-            shadowOpacity: 0.35,
-            shadowOffset: { width: 0, height: 12 },
-            shadowRadius: 28,
-            paddingTop: 10,
-            paddingBottom: 10,
-          },
-          default: {
-            width: "70%",
-            alignSelf: "center",
-            bottom: 30,
-            borderRadius: 60,
-            height: 70,
-            overflow: "hidden",
-            paddingTop: 10,
-            paddingBottom: 10,
-          },
-        }),
+        tabBarStyle: [styles.tabBar, { shadowColor: theme.colors.shadow }],
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Index",
-          tabBarStyle: { display: "none" },
-          tabBarItemStyle: { display: "none" },
+          tabBarStyle: styles.noTabBar,
+          tabBarItemStyle: styles.noTabBarItem,
         }}
       />
       <Tabs.Screen
-        name="HomeScreen"
+        name="DiscoverScreen"
         options={{
           title: "Discover",
           tabBarIcon: ({ color }) => (
@@ -82,21 +56,45 @@ export default function TabLayout() {
       <Tabs.Screen
         name="LoginScreen"
         options={{
-          tabBarStyle: { display: "none" },
-          tabBarItemStyle: { display: "none" },
-
+          tabBarStyle: styles.noTabBar,
+          tabBarItemStyle: styles.noTabBarItem,
           tabBarButton: () => null,
         }}
       />
       <Tabs.Screen
         name="SignupScreen"
         options={{
-          tabBarStyle: { display: "none" },
-          tabBarItemStyle: { display: "none" },
-
+          tabBarStyle: styles.noTabBar,
+          tabBarItemStyle: styles.noTabBarItem,
           tabBarButton: () => null,
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    position: "absolute",
+    bottom: 30,
+    width: "70%",
+    height: 70,
+    borderRadius: 60,
+    backgroundColor: "transparent",
+    marginHorizontal: "15%",
+    shadowOpacity: 0.35,
+    shadowOffset: { width: 0, height: 12 },
+    shadowRadius: 28,
+    paddingTop: 10,
+    paddingBottom: 10,
+    overflow: "hidden",
+    borderTopWidth: 0,
+    elevation: 0,
+  },
+  noTabBar: {
+    display: "none",
+  },
+  noTabBarItem: {
+    display: "none",
+  },
+});
