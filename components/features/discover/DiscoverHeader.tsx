@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Avatar, useTheme } from "react-native-paper";
 
-export const HomeHeader: React.FC = () => {
+export const DiscoverHeader: React.FC = () => {
   const theme = useTheme();
 
   return (

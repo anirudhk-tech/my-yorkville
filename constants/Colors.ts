@@ -62,7 +62,7 @@ export const LIGHT_THEME: MD3Theme = {
 export const DARK_THEME: MD3Theme = {
   ...MD3DarkTheme,
   dark: true,
-  roundness: 4, // consistent border radius
+  roundness: 6, // consistent border radius
   colors: {
     primary: "#90CAF9", // blue200: Buttons, FAB, active elements
     onPrimary: "#0D47A1", // blue900: Text/icons on primary
