@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet } from "react-native";
 import { DiscoverCard } from "./DiscoverCard";
-import React from "react";
+import React, { useCallback } from "react";
+import { List } from "@/components/ui/molecules/List";
 
 export interface DiscoverCardData {
   title: string;
@@ -12,8 +13,27 @@ export interface DiscoverCardData {
 }
 
 export const DiscoverCardList: React.FC = () => {
+  const renderItem = useCallback(
+    ({ item }: { item: DiscoverCardData }) => (
+      <DiscoverCard
+        id={item.id}
+        title={item.title}
+        price={item.price}
+        imagePath={item.imagePath}
+        sellerName={item.sellerName}
+        sellerImage={item.sellerImage}
+      />
+    ),
+    []
+  );
+
+  const keyExtractor = useCallback(
+    (item: DiscoverCardData) => item.id.toString(),
+    []
+  );
+
   return (
-    <FlatList
+    <List
       style={styles.container}
       contentContainerStyle={styles.content}
       data={[
@@ -28,17 +48,9 @@ export const DiscoverCardList: React.FC = () => {
             "https://static.vecteezy.com/system/resources/thumbnails/053/180/599/small/futuristic-cyberpunk-character-in-neon-lit-city-free-photo.jpg",
         },
       ]}
-      renderItem={({ item }: { item: DiscoverCardData }) => (
-        <DiscoverCard
-          id={item.id}
-          title={item.title}
-          price={item.price}
-          imagePath={item.imagePath}
-          sellerName={item.sellerName}
-          sellerImage={item.sellerImage}
-        />
-      )}
-      keyExtractor={(item) => item.id.toString()}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      showsVerticalScrollIndicator={false}
     />
   );
 };
