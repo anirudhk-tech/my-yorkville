@@ -1,6 +1,7 @@
 import { Text } from "@/components/ui/atoms/Text";
+import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Avatar, Card, useTheme } from "react-native-paper";
 
 interface ChatsCardProps {
@@ -17,26 +18,37 @@ export const ChatsCard: React.FC<ChatsCardProps> = ({
   lastMessageTime,
 }) => {
   const theme = useTheme();
+  const router = useRouter();
+
   return (
-    <Card mode="contained">
-      <Card.Content style={styles.container}>
-        <Avatar.Image source={{ uri: recipientImage }} size={50} />
-        <View style={styles.textContainer}>
-          <Card.Title
-            title={recipientName}
-            subtitle={lastMessage}
-            titleStyle={[styles.title, { color: theme.colors.onSurface }]}
-            subtitleStyle={[
-              styles.subTitle,
-              { color: theme.colors.onSurfaceVariant },
-            ]}
-          />
-        </View>
-        <Text style={styles.lastMessageTime} variant="bodySmall">
-          {lastMessageTime}
-        </Text>
-      </Card.Content>
-    </Card>
+    <TouchableOpacity
+      onPress={() =>
+        router.push({
+          pathname: "/chats/[recipientId]",
+          params: { recipientId: recipientName },
+        })
+      }
+    >
+      <Card mode="contained">
+        <Card.Content style={styles.container}>
+          <Avatar.Image source={{ uri: recipientImage }} size={50} />
+          <View style={styles.textContainer}>
+            <Card.Title
+              title={recipientName}
+              subtitle={lastMessage}
+              titleStyle={[styles.title, { color: theme.colors.onSurface }]}
+              subtitleStyle={[
+                styles.subTitle,
+                { color: theme.colors.onSurfaceVariant },
+              ]}
+            />
+          </View>
+          <Text style={styles.lastMessageTime} variant="bodySmall">
+            {lastMessageTime}
+          </Text>
+        </Card.Content>
+      </Card>
+    </TouchableOpacity>
   );
 };
 

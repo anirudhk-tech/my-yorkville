@@ -1,17 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useDebouncedCallback } from "./useDebounceCallback";
-import { Keyboard, TextInput } from "react-native";
-import { Searchbar } from "react-native-paper";
-
-type SearchBarRef = React.ComponentRef<typeof Searchbar>;
-
 export interface UseSearchResult {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   loading: boolean;
   cancel: () => void;
   flush: () => void;
-  searchBarRef: React.RefObject<SearchBarRef>;
 }
 
 export function useSearch(
@@ -20,7 +14,6 @@ export function useSearch(
 ): UseSearchResult {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const searchBarRef = useRef<SearchBarRef>(null);
 
   const doSearch = useCallback(() => {
     setLoading(true);
@@ -37,18 +30,6 @@ export function useSearch(
     };
   }, [query, debounced]);
 
-  useEffect(() => {
-    const hideListener = Keyboard.addListener("keyboardDidHide", () => {
-      if (searchBarRef.current) {
-        searchBarRef.current.blur();
-      }
-    });
-
-    return () => {
-      hideListener.remove();
-    };
-  }, []);
-
   const cancel = useCallback(() => {
     debounced.cancel();
     setQuery("");
@@ -59,5 +40,5 @@ export function useSearch(
     setLoading(false);
   }, [debounced]);
 
-  return { query, setQuery, loading, cancel, flush, searchBarRef };
+  return { query, setQuery, loading, cancel, flush };
 }

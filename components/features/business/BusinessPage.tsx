@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     gap: 30,
   },
   spacer: {
-    height: 50,
+    height: 100,
   },
 });

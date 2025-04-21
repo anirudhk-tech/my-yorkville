@@ -4,11 +4,11 @@ import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-interface ScreenProps {
+interface StackedScreenProps {
   children: React.ReactNode;
 }
 
-export const Screen: React.FC<ScreenProps> = ({ children }) => {
+export const StackedScreen: React.FC<StackedScreenProps> = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -23,7 +23,7 @@ export const Screen: React.FC<ScreenProps> = ({ children }) => {
           translucent={Platform.OS === "android"}
         />
         <SafeAreaView
-          edges={["top", "bottom"]}
+          edges={["bottom"]}
           style={[
             styles.safeArea,
             { backgroundColor: theme.colors.background },

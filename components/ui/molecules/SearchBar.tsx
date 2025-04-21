@@ -1,3 +1,4 @@
+import { useBlurControl } from "@/hooks/shared/useBlurControl";
 import { useSearch } from "@/hooks/shared/useSearch";
 import React from "react";
 import { Searchbar } from "react-native-paper";
@@ -15,9 +16,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   style,
   inputStyle,
 }) => {
-  const { query, setQuery, loading, searchBarRef } = useSearch(onSearch, {
+  const { query, setQuery, loading } = useSearch(onSearch, {
     debounceMs: 500,
   });
+
+  const { inputRef: searchBarRef } = useBlurControl();
 
   return (
     <Searchbar

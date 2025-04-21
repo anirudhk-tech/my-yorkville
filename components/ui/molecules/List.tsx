@@ -21,6 +21,8 @@ export const List = <T,>({
   data,
   keyExtractor,
   renderItem,
+  containerStyle,
+  contentContainerStyle,
   ...props
 }: ListProps<T>) => {
   const memoizedRenderItem = useCallback(renderItem, [renderItem]);
@@ -29,8 +31,8 @@ export const List = <T,>({
   return (
     <FlatList
       {...props}
-      style={styles.container}
-      contentContainerStyle={styles.content}
+      style={[styles.container, containerStyle]}
+      contentContainerStyle={[styles.content, contentContainerStyle]}
       data={data}
       renderItem={memoizedRenderItem}
       keyExtractor={memoizedKeyExtractor}

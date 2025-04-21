@@ -1,8 +1,9 @@
 import { Text } from "@/components/ui/atoms/Text";
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Icon, useTheme } from "react-native-paper";
 import { BusinessReviewCard } from "./BusinessReviewCard";
+import { useRouter } from "expo-router";
 
 export const BusinessReviews: React.FC = () => {
   const theme = useTheme();
@@ -39,16 +40,24 @@ export const BusinessReviews: React.FC = () => {
       submitterName: "Jane Smith",
     },
   ];
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.reviewCountAndTitle}>
+        <TouchableOpacity
+          onPress={() => router.push("/business/BusinessReviewsScreen")}
+          style={styles.reviewCountAndTitle}
+        >
           <Text variant="titleLarge">Reviews</Text>
-          <Text variant="titleLarge" style={{ color: theme.colors.outline }}>
+          <Text
+            variant="titleLarge"
+            style={{ color: theme.colors.outline, marginLeft: 10 }}
+          >
             ({REVIEWS.length})
           </Text>
-        </View>
+          <Icon source="chevron-right" size={30} />
+        </TouchableOpacity>
         <View style={styles.rating}>
           <Text variant="titleLarge">{RATING}</Text>
           <Icon source="star" size={20} />
@@ -96,7 +105,6 @@ const styles = StyleSheet.create({
   reviewCountAndTitle: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
   },
   seeAll: {
     textDecorationLine: "underline",
