@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet } from "react-native";
-import { DiscoverCard } from "./DiscoverCard";
+import { ProductCard } from "../product/ProductCard";
 import React, { useCallback } from "react";
 import { List } from "@/components/ui/molecules/List";
 
@@ -15,7 +15,7 @@ export interface DiscoverCardData {
 export const DiscoverCardList: React.FC = () => {
   const renderItem = useCallback(
     ({ item }: { item: DiscoverCardData }) => (
-      <DiscoverCard
+      <ProductCard
         id={item.id}
         title={item.title}
         price={item.price}

@@ -1,9 +1,9 @@
-import { Screen } from "@/components/ui/templates/Screen";
+import { SafeAreaScreen } from "@/components/ui/templates/SafeAreaScreen";
 
 export default function LoginScreen() {
   return (
-    <Screen>
+    <SafeAreaScreen>
       <></>
-    </Screen>
+    </SafeAreaScreen>
   );
 }

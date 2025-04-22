@@ -2,19 +2,19 @@ import { DiscoverCardList } from "@/components/features/discover/DiscoverCardLis
 import { DiscoverHeader } from "@/components/features/discover/DiscoverHeader";
 import { DiscoverSearchBar } from "@/components/features/discover/DiscoverSearchBar";
 import { DiscoverSearchLabels } from "@/components/features/discover/DiscoverSearchLabels";
-import { Screen } from "@/components/ui/templates/Screen";
+import { SafeAreaScreen } from "@/components/ui/templates/SafeAreaScreen";
 import { StyleSheet, View } from "react-native";
 
 export default function DiscoverScreen() {
   return (
-    <Screen>
+    <SafeAreaScreen>
       <View style={styles.container}>
         <DiscoverHeader />
         <DiscoverSearchBar />
         <DiscoverSearchLabels />
         <DiscoverCardList />
       </View>
-    </Screen>
+    </SafeAreaScreen>
   );
 }
 

@@ -1,6 +1,7 @@
 import { Text } from "@/components/ui/atoms/Text";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "react-native-paper";
 
 export interface BusinessProductCardProps {
@@ -16,9 +17,17 @@ export const BusinessProductCard: React.FC<BusinessProductCardProps> = ({
   price,
   imagePath,
 }) => {
+  const router = useRouter();
   const theme = useTheme();
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={() =>
+        router.push({
+          pathname: "/product/[productId]",
+          params: { productId: id },
+        })
+      }
       style={[
         styles.container,
         { backgroundColor: theme.colors.surfaceVariant },
@@ -32,7 +41,7 @@ export const BusinessProductCard: React.FC<BusinessProductCardProps> = ({
         style={styles.image}
         resizeMode="cover"
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

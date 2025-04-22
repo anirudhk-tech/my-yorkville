@@ -2,9 +2,9 @@ import { Text } from "@/components/ui/atoms/Text";
 import { Rating } from "@/components/ui/molecules/Rating";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Avatar, Icon, useTheme } from "react-native-paper";
+import { Avatar, useTheme } from "react-native-paper";
 
-export interface BusinessReviewCardProps {
+export interface ReviewProps {
   id: number;
   title: string;
   content: string;
@@ -12,7 +12,7 @@ export interface BusinessReviewCardProps {
   submitterImagePath: string;
   submitterName: string;
 }
-export const BusinessReviewCard: React.FC<BusinessReviewCardProps> = ({
+export const Review: React.FC<ReviewProps> = ({
   id,
   title,
   content,

@@ -1,15 +1,19 @@
 import { BusinessImage } from "@/components/features/business/BusinessImage";
 import { BusinessPage } from "@/components/features/business/BusinessPage";
-import { Screen } from "@/components/ui/templates/Screen";
+import { SafeAreaScreen } from "@/components/ui/templates/SafeAreaScreen";
 import { ScrollView } from "react-native";
 
-export default function BusinessScreen() {
+export interface BusinessScreenProps {
+  stacked: boolean;
+}
+
+export default function BusinessScreen({ stacked }: BusinessScreenProps) {
   return (
-    <Screen>
+    <SafeAreaScreen>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <BusinessImage />
+        <BusinessImage stacked={stacked} />
         <BusinessPage />
       </ScrollView>
-    </Screen>
+    </SafeAreaScreen>
   );
 }

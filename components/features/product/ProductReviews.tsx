@@ -5,15 +5,15 @@ import { Icon, useTheme } from "react-native-paper";
 import { useRouter } from "expo-router";
 import { Review } from "@/components/ui/molecules/Review";
 
-export const BusinessReviews: React.FC = () => {
+export const ProductReviews: React.FC = () => {
   const theme = useTheme();
   const RATING = 4.5;
   const REVIEWS = [
     {
       id: 1,
-      title: "Great coffee!",
+      title: "Divine!",
       content:
-        "I love the chai latte here. It's the best I've ever had! The staff is also super friendly.",
+        "Absolutely incredible—rich, creamy, and packed with flavor. The coconut milk finish is divine. I could eat this every day!",
       rating: 5,
       submitterImagePath:
         "https://cdn.lucidpic.com/cdn-cgi/image/w=600,format=auto,metadata=none/66c43abe18502.png",
@@ -21,9 +21,9 @@ export const BusinessReviews: React.FC = () => {
     },
     {
       id: 2,
-      title: "Good atmosphere",
+      title: "Good... but need bigger portions",
       content:
-        "The ambiance is perfect for studying or working. I love the decor and the music they play.",
+        "Smooth, flavorful, and well‑spiced. I especially loved the hint of turmeric. Would’ve given five stars if the portion was larger!.",
       rating: 4,
       submitterImagePath:
         "https://idsb.tmgrup.com.tr/ly/uploads/images/2023/11/14/301015.jpg",
@@ -33,20 +33,21 @@ export const BusinessReviews: React.FC = () => {
       id: 3,
       title: "Average experience",
       content:
-        "The coffee was okay, but I've had better elsewhere. The service was a bit slow too.",
+        "The flavors were okay, but the sauce felt a little thin and the chicken pieces were smaller than expected. Not bad, but not memorable.",
       rating: 3.5,
       submitterImagePath:
         "https://helios-i.mashable.com/imagery/articles/04imK4lcXZcMDygow99xUaG/hero-image.fill.size_1248x702.v1724855738.jpg",
       submitterName: "Jane Smith",
     },
   ];
+
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
-          onPress={() => router.push("/business/BusinessReviewsScreen")}
+          onPress={() => router.push("/product/ProductReviewsScreen")}
           style={styles.reviewCountAndTitle}
         >
           <Text variant="titleLarge">Reviews</Text>

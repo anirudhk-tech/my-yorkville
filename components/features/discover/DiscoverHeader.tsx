@@ -1,27 +1,35 @@
 import { Text } from "@/components/ui/atoms/Text";
 import { Ripple } from "@/components/ui/molecules/Ripple";
+import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Avatar, useTheme } from "react-native-paper";
 
 export const DiscoverHeader: React.FC = () => {
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.surface }]}>
       <Text variant="titleLarge" style={{ color: theme.colors.onSurface }}>
         Discover
       </Text>
-      <Ripple
-        onPress={() => console.log("Home avatar pressed")}
-        style={styles.ripple}
+      <TouchableOpacity
+        onPress={() =>
+          router.push({
+            pathname: "/profile/[userId]",
+            params: { userId: "me" },
+          })
+        }
       >
-        <Avatar.Icon
+        <Avatar.Image
           size={50}
-          icon="account"
-          style={[styles.avatar, { backgroundColor: theme.colors.primary }]}
+          source={{
+            uri: "https://static.vecteezy.com/system/resources/thumbnails/053/180/599/small/futuristic-cyberpunk-character-in-neon-lit-city-free-photo.jpg",
+          }}
+          style={{ backgroundColor: theme.colors.primary }}
         />
-      </Ripple>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -32,9 +40,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  avatar: {},
-  ripple: {
-    borderRadius: 60,
   },
 });
