@@ -5,9 +5,11 @@ import { StyleSheet } from "react-native";
 import { IconSymbol } from "@/components/ui/atoms/IconSymbol";
 import TabBarBackground from "@/components/ui/molecules/navigation/TabBarBackground";
 import { useTheme } from "react-native-paper";
+import { useDeepLink } from "@/hooks/shared/useDeepLink";
 
 export default function TabLayout() {
   const theme = useTheme();
+  useDeepLink();
 
   return (
     <Tabs

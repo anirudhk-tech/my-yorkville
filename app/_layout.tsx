@@ -9,6 +9,7 @@ import { useColorScheme } from "react-native";
 import { PaperProvider } from "react-native-paper";
 import { LIGHT_THEME, DARK_THEME } from "@/constants/Colors";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useDeepLink } from "@/hooks/shared/useDeepLink";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -31,7 +32,7 @@ export default function RootLayout() {
 
   return (
     <PaperProvider
-      theme={DARK_THEME /*colorScheme === "dark" ? DARK_THEME : LIGHT_THEME*/}
+      theme={LIGHT_THEME /*colorScheme === "dark" ? DARK_THEME : LIGHT_THEME*/}
     >
       <SafeAreaProvider>
         <Stack>

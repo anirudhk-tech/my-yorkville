@@ -30,7 +30,11 @@ export const BusinessProductCard: React.FC<BusinessProductCardProps> = ({
       }
       style={[
         styles.container,
-        { backgroundColor: theme.colors.surfaceVariant },
+        {
+          backgroundColor: theme.colors.surfaceVariant,
+          borderWidth: 1,
+          borderColor: theme.colors.surfaceVariant,
+        },
       ]}
     >
       <Text style={styles.title} variant="titleSmall">
