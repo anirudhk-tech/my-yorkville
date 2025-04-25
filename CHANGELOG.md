@@ -13,5 +13,5 @@
 ## 2025-04-24 | 7:22 PM 🚀 Daily Log
 
 - **What I built:** Finished authentication main, and google and apple. Have to test and rebuild.
-- **Why it matters:** With authentication mostly done, we can now move on to the onboarding screens of the real app.
-- **Next:** Test and rebuild to test deep links and authentication with google and apple
+- **Why it matters:** With authentication mostly done, we can now move on to the onboarding screens of the real app once authentication is tested.
+- **Next:** Test and rebuild to test deep links and authentication with google and apple. Move on to onboarding screens if good, otherwise, reiterate.
