@@ -16,7 +16,7 @@
 - **Why it matters:** With authentication mostly done, we can now move on to the onboarding screens of the real app once authentication is tested.
 - **Next:** Test and rebuild to test deep links and authentication with google and apple. Move on to onboarding screens if good, otherwise, reiterate.
 
-## 2025-04-25 | 7:22 PM 🚀 Daily Log
+## 2025-04-25 | 7:27 PM 🚀 Daily Log
 
 - **What I built:** Completed google authentication flow and beginning onboarding screens. Apple authentication flow is half complete (stops on redirect back)
 - **Why it matters:** With authentication almost complete and beginning onboarding setup, we can start interacting with the database to insert photos and real data.
