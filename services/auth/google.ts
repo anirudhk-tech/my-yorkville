@@ -9,6 +9,8 @@ export interface RedirectResponse {
 export const authenticateUserWithGoogle =
   async (): Promise<RedirectResponse> => {
     try {
+      console.log("Authenticating user with Google...");
+
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {

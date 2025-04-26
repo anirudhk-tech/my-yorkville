@@ -1,9 +1,9 @@
-import { Screen } from "@/components/ui/templates/SafeAreaScreen";
+import { SafeAreaScreen } from "@/components/ui/templates/SafeAreaScreen";
 
 export default function NotFoundScreen() {
   return (
-    <Screen>
+    <SafeAreaScreen>
       <></>
-    </Screen>
+    </SafeAreaScreen>
   );
 }

@@ -13,11 +13,7 @@ export const DiscoverSearchLabels = () => {
       contentContainerStyle={styles.content}
     >
       {SEARCH_LABELS.map((label, idx) => (
-        <Ripple
-          key={idx}
-          onPress={() => console.log(label)}
-          style={styles.ripple}
-        >
+        <Ripple key={idx} onPress={() => {}} style={styles.ripple}>
           <Chip style={styles.chip}>{label}</Chip>
         </Ripple>
       ))}

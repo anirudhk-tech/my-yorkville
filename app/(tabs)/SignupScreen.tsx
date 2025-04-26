@@ -61,10 +61,7 @@ export default function SignupScreen() {
           <TouchableOpacity onPress={() => handleSignup({ email, password })}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Signup
@@ -95,10 +92,7 @@ export default function SignupScreen() {
           <TouchableOpacity onPress={handleSignupWithGoogle}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Signup With Google
@@ -107,10 +101,7 @@ export default function SignupScreen() {
           <TouchableOpacity onPress={handleSignupWithApple}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Signup With Apple

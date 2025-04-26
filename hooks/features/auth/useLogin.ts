@@ -43,9 +43,7 @@ export const useLogin = () => {
     try {
       const response = await authenticateUserWithGoogle();
 
-      if (response.success) {
-        router.navigate("/(tabs)/DiscoverScreen");
-      } else {
+      if (!response.success) {
         console.error(
           `Login failed in api with code ${response.error?.code}: `,
           response.error
@@ -62,9 +60,7 @@ export const useLogin = () => {
     try {
       const response = await authenticateUserWithApple();
 
-      if (response.success) {
-        router.navigate("/(tabs)/DiscoverScreen");
-      } else {
+      if (!response.success) {
         console.error(
           `Login failed in api with code ${response.error?.code}: `,
           response.error

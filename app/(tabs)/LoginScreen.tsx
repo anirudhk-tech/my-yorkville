@@ -12,7 +12,6 @@ export default function LoginScreen() {
 
   const theme = useTheme();
   const router = useRouter();
-
   const { handleLogin, handleLoginWithGoogle, handleLoginWithApple, error } =
     useLogin();
 
@@ -62,10 +61,7 @@ export default function LoginScreen() {
           <TouchableOpacity onPress={() => handleLogin({ email, password })}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Login
@@ -96,10 +92,7 @@ export default function LoginScreen() {
           <TouchableOpacity onPress={handleLoginWithGoogle}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Login With Google
@@ -108,10 +101,7 @@ export default function LoginScreen() {
           <TouchableOpacity onPress={handleLoginWithApple}>
             <Button
               textColor={theme.colors.background}
-              style={[
-                styles.button,
-                { backgroundColor: theme.colors.onBackground },
-              ]}
+              style={styles.button}
               mode="contained"
             >
               Login With Apple

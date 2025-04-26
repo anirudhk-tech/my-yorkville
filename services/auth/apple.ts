@@ -9,6 +9,8 @@ export interface RedirectResponse {
 export const authenticateUserWithApple =
   async (): Promise<RedirectResponse> => {
     try {
+      console.log("Authenticating user with Apple...");
+
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "apple",
         options: {

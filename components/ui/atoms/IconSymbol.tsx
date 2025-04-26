@@ -3,12 +3,7 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { SymbolWeight } from "expo-symbols";
 import React from "react";
-import {
-  OpaqueColorValue,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import { OpaqueColorValue, StyleProp, TextStyle } from "react-native";
 
 const MAPPING = {
   // See MaterialIcons here: https://icons.expo.fyi
